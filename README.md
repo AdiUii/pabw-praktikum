@@ -1,4 +1,5 @@
 # pabw-praktikum
+<<<<<<< HEAD
  
 ## pertemuan 3 - HAlaman profil saya
 
@@ -11,3 +12,7 @@ Topik halaman saya : Koleksi musik
 - Kolom tabel: Judul, Penyanyi, Tahun rilis
 - Kolom form: Judul, Penyanyi, Tahun rilis
 - Gambar:
+=======
+
+
+>>>>>>> ee333941afd240e426f7aa4b0efbd0af85c54ff2
