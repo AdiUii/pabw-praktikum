@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--
+  KERANGKA AWAL — Halaman Profil Saya
+  PABW 2026/2027 · Pertemuan 3
+
+  Cara pakai:
+  1. Salin berkas ini, ganti nama menjadi profil.html
+  2. Ganti setiap tulisan TODO dengan isi milik Anda SENDIRI
+  3. Simpan, lalu buka di peramban (F5 untuk memuat ulang)
+  4. Kerjakan berurutan mengikuti Lembar B, C, D, dan E pada worksheet
+
+  Jangan menghapus komentar TODO sebelum bagian itu Anda kerjakan —
+  komentar itu adalah daftar periksa Anda sendiri.
+-->
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playlist musik</title>
+
+</head>
+<body>
+
+  <header>
+    <h1>Playlist musik</h1>
+    <nav>
+      <ul>
+        <li><a href="#daftar-musik">Daftar musik</a></li>
+        <li><a href="#tambah-lagu">Tambah lagu</a></li>
+        <li><a href="#profil">Profil</a></li>
+      </ul>
+    </nav>
+  </header>
+ 
+  <main>
+    <section id="daftar-musik">
+      <h2>Daftar musik</h2>
+      <table>
+  <caption>Playlist</caption>
+  <thead>
+    <tr>
+      <th scope="col">Judul</th>
+      <th scope="col">Penyanyi</th>
+      <th scope="col">Tahun rilis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+          <td>Cinderella</td>
+          <td>Mac Miller</td>
+          <td>21/09/2016</td>
+    </tr>
+    <tr>
+          <td>God is</td>
+          <td>Kanye West</td>
+          <td>25/10/2019</td>
+     </tr>
+     <tr>
+          <td>Money Trees</td>
+          <td>Kendrick Lamar</td>
+          <td>22/10/2012</td>
+     </tr>
+  </tbody>
+</table>
+
+<figure>
+  <img src="https://images.icon-icons.com/3215/PNG/512/music_melody_audio_song_tone_icon_196488.png"
+       alt="Melodi adalah susunan atau rangkaian sejumlah nada"
+       width="640" height="360" loading="lazy">
+  <figcaption>Ilustrasi rangkaian nada atau melodi</figcaption>
+</figure>
+</section>
+ 
+<section id="tambah-lagu">
+  <h2>Tambah Lagu</h2>
+  <form>
+    <div>
+      <label for="judul">Judul :</label>
+      <input type="text" id="judul" name="judul" required>
+    </div>
+    <div>
+      <label for="penyanyi">Penyanyi:</label>
+      <input type="text" id="penyanyi" name="penyanyi" required>
+    </div>
+    <div>
+      <label for="tahun-rilis">Tahun rilis:</label>
+      <input type="number" id="tahun-rilis" name="tahun-rilis" min="1900" max="2026" required>
+    </div>
+    <button type="submit">Simpan Data</button>
+  </form>
+</section>
+  </main>
+ 
+  <footer>
+    <p>Muchamad Adi Prasetyo · 25523259 · 2026</p>
+  </footer>
+
+
+</body>
+</html>
