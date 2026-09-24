@@ -1,0 +1,51 @@
+/* Mode gelap mengikuti pengaturan sistem */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-bg: #0F172A;
+        --color-fg: #E2E8F0;
+        --color-surface: #1E293B;
+        --color-border: #334155;
+        --color-primary: #7DA9F7;
+        --color-danger: #FF8A8A;
+        --color-focus: #FFC000;
+        --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.45);
+    }
+}
+
+/* Tema terang ketika checkbox tidak dicentang */
+:root:has(#tema:not(:checked)) {
+    --color-bg: #F8FAFC;
+    --color-fg: #0F172A;
+    --color-surface: #FFFFFF;
+    --color-border: #D1D5DB;
+    --color-primary: #1D4ED8;
+    --color-danger: #B00020;
+    --color-focus: #3B82F6;
+    --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.10);
+}
+
+.pengalih-tema { position: absolute; opacity: 0; pointer-events: none; }
+
+/* Tema gelap ketika checkbox dicentang */
+:root:has(#tema:checked) {
+    --color-bg: #0F172A;
+    --color-fg: #E2E8F0;
+    --color-surface: #1E293B;
+    --color-border: #334155;
+    --color-primary: #7DA9F7;
+    --color-danger: #FF8A8A;
+    --color-focus: #FFC000;
+    
+}
+
+/* Tombol tema */
+.tombol-tema {
+    display: inline-block;
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    color: var(--color-fg);
+    cursor: pointer;
+    margin-bottom: var(--space-4);
+}
