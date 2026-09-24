@@ -1,3 +1,4 @@
+
 header {
     padding-block: var(--space-4);
     border-bottom: 1px solid var(--color-border);
@@ -47,10 +48,16 @@ main {
     padding: var(--card-pad);
 }
 
+#daftar-musik {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
 footer {
     margin-top: var(--space-6);
     padding-block: var(--space-4);
     border-top: 1px solid var(--color-border);
-    color: var(--color-fg);       
     font-size: var(--text-sm);
 }
