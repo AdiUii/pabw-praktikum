@@ -16,7 +16,7 @@ Topik halaman saya : Koleksi musik
  
 - Berkas gaya yang akan dibuat: tokens.css, base.css,
   layout.css, komponen.css, tema.css
-- Warna utama: #1DB954 (biru), dipilih karena ...
+- Warna utama: #1DB954 (hijau), dipilih karena sangat identik dengan aplikasi musik yang sudah ada
  
 ### Token yang saya tetapkan
  
@@ -25,8 +25,13 @@ Topik halaman saya : Koleksi musik
 | --color-primary | #1DB954 | tombol, tautan, penanda |
 | --color-fg | #0F172A | warna teks utama |
 | --color-bg | #F8FAFC | latar halaman |
-| --radius-md | 0.5rem | sudut tombol dan kartu |
-| --space-4 | 1rem | jarak standar antar elemen |
+| --radius-md | 0.75rem | sudut tombol dan kartu |
+| --space-4 | 1.125rem | jarak standar antar elemen |
  
 Kriteria selesai saya: mengubah --color-primary di satu baris
 harus mengubah warna tombol, tautan, judul, dan garis fokus.
+
+Ada BANTUAN AI
+Dalam mengerjakan tugas ini sebagai bantuan untuk memahami materi, mencari kesalahan kode, dan membantu proses perbaikan CSS.
+
+tampilan akhir tetap saya sesuaikan dengan kebutuhan tugas.
