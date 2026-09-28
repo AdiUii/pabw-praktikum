@@ -1,0 +1,36 @@
+:root {
+  --green-500: #1DB954; 
+  --blue-500:  #2563EB;
+  --gray-50:   #F8FAFC;
+  --gray-150:  #0F172A;
+
+  --space-1: 0.4rem;
+  --space-2: 0.8rem;
+  --space-3: 1.2rem;
+  --space-4: 1.6rem;
+  --space-6: 2.4rem;
+
+  --radius-md: 0.25rem;
+  --radius-full: 9999px;
+  
+  --shadow-1:  0 1px 3px rgba(0, 0, 0, 0.2);
+
+  --text-sm:  0.875rem;
+  --text-md:  1.125rem;
+  --text-xl:  1.75rem;
+  --text-3xl: 2.6rem;
+}
+
+
+:root {
+  --color-bg:       var(--gray-50);
+  --color-fg:       var(--gray-150);
+  --color-surface:  #FFFFFF;
+  --color-border:   #D1D5DB;
+  --color-primary:  var(--green-500); 
+  --color-danger:   #B00020;
+  --color-focus:    var(--blue-500);
+ 
+  --card-pad:       var(--space-4);
+  --section-gap:    var(--space-6);
+}
