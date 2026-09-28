@@ -52,7 +52,6 @@ input:user-invalid {
     display: block;
 }
 
-/* Modifikasi Kartu (Worksheet E.1 dan E.2) */
 .kartu {
   display: grid;
   align-content: space-between;
@@ -64,7 +63,6 @@ input:user-invalid {
   padding: 1.5rem; /* Fallback untuk --card-pad */
 }
 
-/* Perbaikan Isi Panjang (Worksheet E.2) */
 .kartu__isi { 
   min-width: 0; 
 }
@@ -74,7 +72,6 @@ input:user-invalid {
   margin-bottom: var(--space-2);
 }
 
-/* Isi dalam satu kartu memakai Flex (Worksheet C.2) */
 .kartu__kaki {
   display: flex;
   align-items: center;
