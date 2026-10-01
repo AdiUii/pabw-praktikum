@@ -1,4 +1,3 @@
-/* Mode gelap mengikuti pengaturan sistem */
 @media (prefers-color-scheme: dark) {
     :root {
         --color-bg: #0F172A;
@@ -35,7 +34,6 @@
 
 .pengalih-tema {position: absolute; opacity: 0;pointer-events: none;}
 
-/* Tema gelap ketika checkbox dicentang */
 :root:has(#tema:checked) {
     --color-bg: #0F172A;
     --color-fg: #E2E8F0;
@@ -46,7 +44,6 @@
     --color-focus: #2563EB;
     --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.45);
 }
-
 
 
 .tombol-tema {

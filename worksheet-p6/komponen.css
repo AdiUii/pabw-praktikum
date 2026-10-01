@@ -60,7 +60,7 @@ input:user-invalid {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-1);
-  padding: 1.5rem; /* Fallback untuk --card-pad */
+  padding: 1.5rem; 
 }
 
 .kartu__isi { 
