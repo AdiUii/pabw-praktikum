@@ -1,0 +1,72 @@
+.header-baris {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem; /* Memberi jarak antar elemen agar tidak terlalu menempel */
+}
+.isi {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "sisi"
+    "utama"
+    "bawah";
+  gap: var(--space-4);
+}
+
+/* 2. Kartu musik menjadi 1 kolom berjejer ke bawah */
+.galeri {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+/* 3. Kotak premium dikembalikan ke ukuran normal (1 kolom) */
+.sorotan {
+  grid-column: auto;
+}
+
+/* 4. Gambar tidak meluber keluar layar */
+img { 
+  max-width: 100%; 
+  height: auto; 
+}
+
+@media (min-width: 48rem) {
+  .galeri { 
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+/* Titik Henti 2: DESKTOP (Sidebar bersanding dengan konten utama) */
+@media (min-width: 60rem) {
+  .isi { 
+    grid-template-columns: 16rem 1fr; 
+    grid-template-areas:
+      "sisi utama"
+      "sisi bawah";
+  }
+  
+  .galeri { 
+    /* Mengembalikan galeri ke sifat aslinya yang adaptif */
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); 
+  }
+  
+  .sorotan {
+    /* Bagian premium kembali melebar memakan 2 kolom */
+    grid-column: span 2; 
+  }
+}
+
+img { 
+  max-width: 100%; 
+  height: auto; 
+}
+
+.table-wrap { 
+  overflow-x: auto; 
+}
+
+p { 
+  font-size: 1rem; 
+  line-height: 1.6; 
+}
