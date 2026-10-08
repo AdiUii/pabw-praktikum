@@ -42,4 +42,19 @@ console.table(selesai);
 const katalog = daftarProyek.find((proyek) => proyek.judul === "Katalog Produk");
 console.log(katalog);
 
+// CONTOH PERCOBAAN untuk worksheet F SOAL NOMOR 3
 
+// 1. DENGAN titik tiga (...)
+const salinanPakaiTitikTiga = { ...profil, status: "Aktif" };
+console.log("Hasil DENGAN titik tiga (...):", salinanPakaiTitikTiga);
+
+// 2. TANPA titik tiga
+const salinanTanpaTitikTiga = { profil, status: "Aktif" };
+console.log("Hasil TANPA titik tiga:", salinanTanpaTitikTiga);
+
+// CONTOH PEMAKAIAN 'let' (untuk nilai yang bisa berubah/diperbarui)
+let statusProjekSelesai = false; 
+
+// Suatu saat nilainya bisa diubah:
+statusProjekSelesai = true; 
+console.log("Status proyek terbaru:", statusProjekSelesai);
