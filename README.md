@@ -47,8 +47,31 @@ Pada pertemuan ini, halaman web disempurnakan agar adaptif terhadap berbagai uku
    min-width: 60rem (Desktop - 1280px): Tata letak berubah menjadi tiga kolom keseluruhan, dengan *sidebar* melodi berada menetap di sisi kiri dan konten meluas di sisi kanan.
  **Penanganan Elemen Luber:** Menerapkan max-width: 100% pada gambar dan menggunakan ukuran relatif (rem) agar tidak ada elemen yang memaksa munculnya *scroll* mendatar di layar sempit.
 
+ # Laporan Praktikum PABW — Pertemuan 8
+Mata Kuliah: Pemrograman Aplikasi Berbasis Web (PABW)  
+**Topik:** JavaScript Modern (ES6+) — Objek, Fungsi, dan Manipulasi Array  
+
+## Identitas Mahasiswa
+* **Nama:** Muchamad Adi Prasetyo
+* **Angkatan:** 2025
+* **Program Studi:** Informatika
+
+
+## Deklarasi Penggunaan AI
+Sesuai dengan ketentuan lembar kerja praktikum, berikut adalah rincian pembagian tugas:
+
+* Bagian yang dibantu oleh AI:
+  * Berdiskusi dan memahami konsep alur kerja metode array modern (`map`, `filter`, `find`) serta penggunaan *spread operator* (`...`) pada objek dan array.
+  * Membantu memecahkan dan merumuskan jawaban teoretis untuk soal-soal evaluasi pada bagian Tiket Keluar (*Exit Ticket* / Lembar F).
+  * Membantu merancang format penulisan dokumentasi proyek (`README.md`).
+
+* **Bagian yang dikerjakan sendiri:**
+  * Mengetik dan menyusun seluruh baris kode sumber secara mandiri di VS Code (`app.js` dan `profil.html`).
+  * Mengisi dan memodifikasi data objek (`profil` serta `daftarProyek`) dengan data pribadi.
+  * Melakukan pengujian langsung, menganalisis tampilan data di Console peramban (DevTools), serta memastikan kode berjalan tanpa galat (*error*).
+  * Melakukan manajemen versi menggunakan perintah Git (`git add`, `git commit`, dan `git push`) ke repositori GitHub.
+
 Ada BANTUAN AI
 Dalam mengerjakan tugas ini sebagai bantuan untuk memahami materi, mencari kesalahan kode, dan membantu proses perbaikan CSS.
-
 
 tampilan akhir tetap saya sesuaikan dengan kebutuhan tugas.

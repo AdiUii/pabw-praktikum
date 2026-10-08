@@ -42,6 +42,10 @@ console.table(selesai);
 const katalog = daftarProyek.find((proyek) => proyek.judul === "Katalog Produk");
 console.log(katalog);
 
+const daftarJudul = daftarProyek.map((proyek) => proyek.judul);
+console.log(daftarJudul);
+
+
 // CONTOH PERCOBAAN untuk worksheet F SOAL NOMOR 3
 
 // 1. DENGAN titik tiga (...)
