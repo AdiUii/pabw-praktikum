@@ -2,7 +2,6 @@ import { daftarProyek } from "./app.js";
 
 const wadah = document.querySelector("#daftar");
 const pesanKosong = document.querySelector("#pesan-kosong");
-const daftarTombol = document.querySelectorAll("#filter button");
 
 function buatKartu(musik) {
   const kartu = document.createElement("li");
@@ -36,69 +35,66 @@ function buatKartu(musik) {
 }
 
 // ==========================================
-// LEMBAR D.1: SATU FUNGSI RENDER (Sesuai Urutan Modul)
+// LEMBAR D.1: SATU FUNGSI RENDER
 // ==========================================
 function render(data) {
-  // 1. Kosongkan wadah lebih dulu
   wadah.textContent = ""; 
   
-  // 2. Periksa keadaan kosong (Hentikan proses jika kosong)
   if (data.length === 0) {
     pesanKosong.hidden = false;
-    return; // Berhenti di sini, tidak perlu looping
+    return;
   } 
   
-  // Jika tidak kosong, sembunyikan pesan
   pesanKosong.hidden = true;
 
-  // 3. Isi ulang data ke layar
   data.forEach((musik) => {
     wadah.append(buatKartu(musik));
   });
 }
 
-// Render data awal
 render(daftarProyek);
 
 
 // ==========================================
-// LEMBAR C.2: TOMBOL YANG SEDANG AKTIF
+// LEMBAR C: SATU PENDENGAR DI INDUK (EVENT DELEGATION)
 // ==========================================
+const barisFilter = document.querySelector("#filter");
+
 function tandaiTombolAktif(tombolAktif) {
-  daftarTombol.forEach((tombol) => {
-    // Mengecek apakah tombol yang sedang dilooping adalah tombol yang diklik
+  const semuaTombol = barisFilter.querySelectorAll("button");
+  
+  semuaTombol.forEach((tombol) => {
     const aktif = tombol === tombolAktif;
-    
-    // Toggle class "aktif" (tambah jika true, hapus jika false)
-    tombol.classList.toggle("aktif", aktif); 
-    
-    // Setel aria-pressed untuk aksesibilitas (pembaca layar)
+    tombol.classList.toggle("aktif", aktif);
     tombol.setAttribute("aria-pressed", String(aktif));
   });
 }
 
-// Pasang event listener pada setiap tombol
-daftarTombol.forEach((tombol) => {
-  tombol.addEventListener("click", () => {
-    // Panggil fungsi penanda visual
-    tandaiTombolAktif(tombol);
+// SATU EVENT LISTENER SAJA DI ELEMEN INDUK
+barisFilter.addEventListener("click", (event) => {
+  const tombol = event.target.closest("button");
+  
+  if (!tombol) return;
 
-    const kategori = tombol.dataset.kategori;
+  tandaiTombolAktif(tombol);
 
-    let hasilFilter = daftarProyek;
-    if (kategori !== "semua") {
-      hasilFilter = daftarProyek.filter((musik) => musik.kategori === kategori);
-    }
+  const kategori = tombol.dataset.kategori;
 
-    render(hasilFilter);
-  });
+  let hasilFilter = daftarProyek;
+  if (kategori !== "semua") {
+    hasilFilter = daftarProyek.filter((musik) => musik.kategori === kategori);
+  }
+
+  render(hasilFilter);
 });
 
+
+// ==========================================
 // LEMBAR D.2: VALIDASI FORM YANG MENJAWAB SEBELUM DIKIRIM
+// ==========================================
 const formTambah = document.querySelector("#tambah-lagu form");
 const tombolSimpan = formTambah.querySelector('button[type="submit"]');
 
-// Matikan validasi bawaan browser agar JS mengambil alih
 formTambah.noValidate = true;
 
 function periksaForm() {
@@ -109,7 +105,6 @@ function periksaForm() {
   const inputPenyanyi = document.querySelector("#penyanyi");
   const inputTahun = document.querySelector("#tahun-rilis");
 
-  // Validasi Judul
   if (inputJudul.value.trim() === "") {
     inputJudul.setAttribute("aria-invalid", "true");
     sah = false;
@@ -118,7 +113,6 @@ function periksaForm() {
     inputJudul.removeAttribute("aria-invalid");
   }
 
-  // Validasi Penyanyi
   if (inputPenyanyi.value.trim() === "") {
     inputPenyanyi.setAttribute("aria-invalid", "true");
     sah = false;
@@ -127,7 +121,6 @@ function periksaForm() {
     inputPenyanyi.removeAttribute("aria-invalid");
   }
 
-  // Validasi Tahun
   if (inputTahun.value.trim() === "" || Number(inputTahun.value) < 1900) {
     inputTahun.setAttribute("aria-invalid", "true");
     sah = false;
@@ -136,13 +129,11 @@ function periksaForm() {
     inputTahun.removeAttribute("aria-invalid");
   }
 
-  // Matikan tombol jika tidak sah
   tombolSimpan.disabled = !sah;
 
   return { sah, kolomBermasalah };
 }
 
-// Jalankan validasi SAAT pengguna mengetik (Sesuai modul)
 formTambah.addEventListener("input", periksaForm);
 
 formTambah.addEventListener("submit", (event) => {
@@ -150,7 +141,6 @@ formTambah.addEventListener("submit", (event) => {
 
   const hasilCek = periksaForm();
 
-  // Jika ada kolom bermasalah, pindahkan pandangan ke kolom tersebut
   if (!hasilCek.sah) {
     hasilCek.kolomBermasalah.focus();
     return;
@@ -169,7 +159,7 @@ formTambah.addEventListener("submit", (event) => {
   daftarProyek.push(laguBaru);
   
   formTambah.reset();
-  periksaForm(); // Memastikan tombol kembali nonaktif
+  periksaForm(); 
   
   document.querySelector('[data-kategori="semua"]').click();
 });
