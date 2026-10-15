@@ -13,7 +13,7 @@ export async function ambilProyek() {
     
   } catch (galat) {
     console.error('gagal memuat', galat.message);
-    throw galat; // Lempar galat ke pemanggilnya (app.js)
+    throw galat; 
   }
 }
 
