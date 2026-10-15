@@ -1,4 +1,4 @@
-const ALAMAT = 'data/lagu.json';
+const ALAMAT = 'https://raw.githubusercontent.com/AdiUii/pabw-praktikum/refs/heads/main/worksheet-p10/data/lagu.json';
 
 export async function ambilProyek() {
   try {
