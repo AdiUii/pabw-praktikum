@@ -16,7 +16,7 @@ export function tampilkanGalat(pesan) {
   }
 }
 
-export function buatKartu(musik, favorit) {
+export function buatKartu(musik, favorit = []) {
   const kartu = document.createElement("li");
   kartu.className = "kartu";
 
@@ -47,7 +47,7 @@ export function buatKartu(musik, favorit) {
   tombolBintang.dataset.id = musik.id; // Pastikan data API mu punya .id
   
   // Jika id musik ada di dalam daftar favorit, tampilkan ★, jika tidak ☆
-  tombolBintang.textContent = favorit.includes(musik.id) ? "★" : "☆";
+  tombolBintang.textContent = favorit.includes(String(musik.id)) ? "★" : "☆";
   // --- Akhir penambahan ---
 
   kaki.append(tahun, tombolPutar, tombolBintang);
