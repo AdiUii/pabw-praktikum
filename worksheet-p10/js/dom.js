@@ -1,15 +1,12 @@
 const wadah = document.querySelector("#daftar");
-// Pastikan ID elemen pesan kosong dan memuat sesuai dengan di HTML kamu (misal: id="kosong" dan id="muat")
 const kosong = document.querySelector("#kosong");
 const muatEl = document.querySelector("#muat");
 const barisFilter = document.querySelector("#filter");
 
-// 1. FUNGSI MENGATUR TAMPILAN MEMUAT
 export function aturMemuat(aktif) {
   if (muatEl) muatEl.hidden = !aktif;
 }
 
-// 2. FUNGSI MENAMPILKAN PESAN GALAT
 export function tampilkanGalat(pesan) {
   if (wadah) wadah.textContent = '';
   if (kosong) {
@@ -18,30 +15,43 @@ export function tampilkanGalat(pesan) {
   }
 }
 
-// FUNGSI MEMBUAT ELEMEN KARTU (Dari Pertemuan 9)
 function buatKartu(musik) {
   const kartu = document.createElement("li");
   kartu.className = "kartu";
 
+  const isi = document.createElement("div");
+  isi.className = "kartu__isi";
+
   const judul = document.createElement("h3");
+  judul.className = "kartu__judul";
   judul.textContent = musik.judul; 
 
   const penyanyi = document.createElement("p");
   penyanyi.textContent = musik.penyanyi; 
 
+  isi.append(judul, penyanyi);
+
+  const kaki = document.createElement("div");
+  kaki.className = "kartu__kaki";
+
   const tahun = document.createElement("span");
   tahun.textContent = musik.tahun; 
 
-  kartu.append(judul, penyanyi, tahun);
+  const tombolPutar = document.createElement("button");
+  tombolPutar.textContent = "Putar";
+
+  kaki.append(tahun, tombolPutar);
+  kartu.append(isi, kaki);
+  
   return kartu;
 }
 
-// 3. FUNGSI RENDER UTAMA (Menggambar ke layar)
+
 export function render(daftar) {
   if (!wadah) return;
-  wadah.textContent = ''; // Kosongkan wadah sebelum diisi ulang
+  wadah.textContent = ''; 
 
-  if (!daftar || daftar.length === 0) { // Jika data kosong
+  if (!daftar || daftar.length === 0) { 
     if (kosong) {
       kosong.textContent = 'Belum ada lagu yang tersedia.';
       kosong.hidden = false;
@@ -49,15 +59,13 @@ export function render(daftar) {
     return;
   }
 
-  if (kosong) kosong.hidden = true; // Sembunyikan pesan kosong jika ada data
+  if (kosong) kosong.hidden = true; 
 
-  // Telusuri array dan gambar kartu
   daftar.forEach((musik) => {
     wadah.append(buatKartu(musik));
   });
 }
 
-// 4. FUNGSI FILTER (Menggunakan data dari argumen, bukan dari app.js)
 export function pasangFilter(daftar) {
   if (!barisFilter) return;
   barisFilter.addEventListener('click', (event) => {
@@ -65,10 +73,9 @@ export function pasangFilter(daftar) {
     if (!tombol) return;
 
     const kategori = tombol.dataset.kategori;
-    // Saring data jaringan yang dikirim dari app.js
     const hasilFilter = daftar.filter((musik) => kategori === 'semua' || musik.kategori === kategori);
     
-    render(hasilFilter); // Gambar hasil saringan
+    render(hasilFilter); 
   });
 }
 
