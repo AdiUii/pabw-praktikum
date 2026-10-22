@@ -1,8 +1,30 @@
+<script setup>
+import { onMounted, watch } from 'vue'
+import { profil } from './data.js'
+import { ambilProyek } from './api.js'
+import { state, simpan, muat, pulihkan, isiProyek } from './state.js'
+import KepalaProfil from './components/KepalaProfil.vue'
+import TombolFilter from './components/TombolFilter.vue'
+import DaftarProyek from './components/DaftarProyek.vue'
+import FormKontak from './components/FormKontak.vue'
 
+onMounted(async () => {
+  pulihkan(muat()) // pilihan terakhir dari localStorage
+  try {
+    const data = await ambilProyek()
+    isiProyek(Array.isArray(data) ? data : data.lagu)
+  } catch (galat) {
+    state.galat = 'Data gagal dimuat. Periksa koneksi, lalu muat ulang.'
+  } finally {
+    state.memuat = false
+  }
+})
+
+watch(state, (nilai) => simpan(nilai), { deep: true })
+</script>
 
 <template>
   <div class="page">
-    
     <header class="header-baris">
       <div>
         <input type="checkbox" id="tema" class="pengalih-tema">
@@ -17,13 +39,12 @@
         </ul>
       </nav>
     </header>
-  
+
     <main class="isi">
       <aside class="sisi">
-        <figure>
-          <img src="https://images.icon-icons.com/3215/PNG/512/music_melody_audio_song_tone_icon_196488.png"
-               alt="Melodi adalah susunan atau rangkaian sejumlah nada"
-               loading="lazy">
+        <KepalaProfil :profil="profil" />
+        <figure style="margin-top: 2rem;">
+          <img src="https://images.icon-icons.com/3215/PNG/512/music_melody_audio_song_tone_icon_196488.png" alt="Melodi" loading="lazy">
           <figcaption>Ilustrasi rangkaian nada atau melodi</figcaption>
         </figure>
       </aside>
@@ -31,52 +52,13 @@
       <div class="utama">
         <section id="daftar-musik">
           <h2>Daftar musik</h2>
-          
-          <!-- Tambahan: Tombol filter kategori -->
-          <div id="filter" style="margin-bottom: 1rem;">
-            <button data-kategori="semua" class="aktif">Semua</button>
-            <button data-kategori="hiphop">Hip Hop</button>
-            <button data-kategori="pop">Pop</button>
-            <button id="atur-ulang">Atur Ulang</button>
-          </div>
-
-          <!-- Wadah ini sekarang DENGAN SENGAJA DIKOSONGKAN untuk diisi oleh JavaScript -->
-          <ul id="daftar" class="galeri"></ul>
-          
-          <!-- Pesan jika filter tidak menemukan lagu -->
-          <p id="pesan-kosong" hidden>Tidak ada musik pada kategori itu.</p>
-          <p id="muat" hidden>Memuat data lagu...</p>
+          <TombolFilter />
+          <DaftarProyek />
         </section>
 
-      
         <section id="tambah-lagu" style="margin-top: 2rem;">
           <h2>Tambah Lagu</h2>
-          <form>
-            <div class="form-kolom">
-              <label for="judul">Judul :</label>
-              <input type="text" id="judul" name="judul" required>
-              <p class="pesan-galat">Judul lagu belum diisi.</p>
-            </div>
-            <div class="form-kolom">
-              <label for="penyanyi">Penyanyi:</label>
-              <input type="text" id="penyanyi" name="penyanyi" required>
-              <p class="pesan-galat">Penyanyi belum diisi.</p>
-            </div>
-            <div class="form-kolom">
-              <label for="tahun-rilis">Tahun rilis:</label>
-              <input type="number" id="tahun-rilis" name="tahun-rilis" min="1900" max="2026" required>
-              <p class="pesan-galat">Masukkan tahun rilis berupa angka (minimal tahun 1900).</p>
-            </div>
-            <!-- PENAMBAHAN BARU DI P9: Form Kategori -->
-            <div class="form-kolom">
-              <label for="kategori-lagu">Kategori:</label>
-              <select id="kategori-lagu" name="kategori-lagu" required style="width: 100%; padding: 0.5rem; margin-top: 0.2rem;">
-                <option value="hiphop">Hip Hop</option>
-                <option value="pop">Pop</option>
-              </select>
-            </div>
-            <button type="submit" style="margin-top: 1rem;">Simpan Data</button>
-          </form>
+          <FormKontak />
         </section>
       </div>
 
@@ -86,6 +68,7 @@
         <button>Gabung Sekarang</button>
       </section>
     </main>
+
     <footer>
       <p>Muchamad Adi Prasetyo · 25523259 · 2026</p>
     </footer>
